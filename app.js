@@ -56,7 +56,6 @@ function mostrar()  {
     document.querySelector(".myul").appendChild(lista);
     };
     document.querySelector("#amount").value = "";
-    button.addEventListener('click', mostrar);
 }
 
 
