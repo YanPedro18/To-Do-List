@@ -1,13 +1,10 @@
-
-
-
 function mostrar()  {
 
     let inputValuee = document.querySelector("#amount").value;
     console.log(inputValuee);
 
+    
     if (inputValuee === '') {
-      console.error(null);
     } else {
 
     let lista = document.createElement("li");
@@ -19,45 +16,65 @@ function mostrar()  {
     chekedValue.type = 'checkbox';
     chekedValue.setAttribute('type', 'checkbox');
     lista.appendChild(chekedValue);
-    chekedValue.classList.add("teste");
 
     chekedValue.addEventListener('click', function (e) {
         if(chekedValue.checked) {
-            lista.style.textDecoration = "line-through";
+            lbText.style.textDecoration = "line-through";
         } else {
-            lista.style.textDecoration = "none";
+            lbText.style.textDecoration = "none";
         }
         
     });
 
-    let butRemove = document.createElement("span");
+    let butRemove = document.createElement("button");
 
     butRemove.className = 'material-symbols-outlined';
-    butRemove.id = 'texte';
     butRemove.innerText = 'delete_sweep';
     butRemove.style.width = '22.2px';
     butRemove.style.height = '22.2px';
     butRemove.style.fontSize = '17px';
-    butRemove.style.transform = "translate(60px, 0.5px)";
+    butRemove.style.border = 'none';
+    butRemove.style.textDecoration = "none";
+
+  
 
     
     butRemove.addEventListener('click', function (sabe) {
-      lista.classList.add('listona');
+      lista.classList.add('list-none');
       lista.style.display = 'none';
     })
 
+    
     console.log(butRemove);
 
+    let lbText = document.createElement('p');
+    lbText.classList.add('textVal');
     let textValue = document.createTextNode(inputValuee);
-    lista.appendChild(textValue);
-    lista.appendChild(butRemove);
+    lbText.appendChild(textValue);
 
+    lista.appendChild(lbText);
+    lista.appendChild(butRemove);
+   
+
+    
     let button = document.querySelector('#align');
     document.querySelector(".myul").appendChild(lista);
     };
     document.querySelector("#amount").value = "";
-    button.addEventListener('click', mostrar);
+
+
+ 
 }
+let btnclick = document.querySelector("#align");
+let inputValuee2 = document.querySelector("#amount");
+
+inputValuee2.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    btnclick.click();
+
+  };
+});
 
 
 //parseint pega um value transforma de string para number.
